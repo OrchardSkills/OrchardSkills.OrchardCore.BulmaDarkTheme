@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="%2a%2a\**" />
+    <Content Remove="%2a%2a\**" />
+    <EmbeddedResource Remove="%2a%2a\**" />
+    <None Remove="%2a%2a\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.0.0-rc2-13391" />
     <PackageReference Include="OrchardCore.Logging.NLog" Version="1.0.0-rc2-13391" />
   </ItemGroup>

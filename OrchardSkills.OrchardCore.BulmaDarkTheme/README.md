@@ -1,8 +1,8 @@
-# bulma-webpack
+# Bulma Dark Theme
 
-Use Bulma with webpack
+Building Bulma CSS with Webpack
 
-# Building Bulma Webpack
+# Building Bulma CSS with Webpack
 
 ## Install Packages
 
@@ -20,6 +20,9 @@ yarn install
 
 ## Development
 
+A developer can build, debug and display the CSS and HTML using the development build and the Webpack server.
+Use the following command:
+
 ### NPM
 
 ```
@@ -34,6 +37,9 @@ yarn start
 
 ## Production
 
+In order to use the Bulma Dark Theme CSS a production build needs to be executed.
+Use the following command:
+
 ### NPM
 
 ```
@@ -46,4 +52,10 @@ npm run deploy
 yarn deploy
 ```
 
-The production build files will be located in the ./wwwroot/dist folder
+## Source Code
+
+All the source code for the fonts, icons, images, styles, javascript and html are located in the ./src folder.
+
+## Distrubution Code
+
+After the production build, the files will be located in the ./wwwroot/dist folder
