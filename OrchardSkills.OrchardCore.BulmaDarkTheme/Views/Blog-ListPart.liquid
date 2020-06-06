@@ -1,3 +1,22 @@
+<div style="display:flex">
+	<h1 style="margin-right:5px">
+		<a href="/categories">
+			<span class="tag is-primary">
+				
+				List All Categories
+			</span>
+		</a>
+	</h1>
+	<h1>
+		<a href="/tags">
+			<span class="tag is-info">	
+				List All Tags
+			</span>
+		</a>
+	</h1>
+</div>
+<br>
+
 {% for item in Model.ContentItems %}
     {{ item | shape_build_display: "Summary" | shape_render }}
 {% endfor %}

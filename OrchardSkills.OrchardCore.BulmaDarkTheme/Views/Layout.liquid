@@ -30,7 +30,8 @@
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
             </a>
-            <div id="navbarBasicExample"
+          </div>
+          <div id="navbarBasicExample"
               class="is-success navbar-menu">
               <ul style="display: flex;
               justify-content: center; margin: auto;">
@@ -73,10 +74,12 @@
               </ul>
             </div>
             <div class="navbar-end" style="margin-left: unset;">
-              {% shape "menu", alias: "alias:main-menu", cache_id: "main-menu", cache_fixed_duration: "00:05:00", cache_tag: "alias:main-menu" %}
+            
+            {% shape "menu", alias: "alias:main-menu", cache_id: "main-menu", cache_fixed_duration: "00:05:00", cache_tag: "alias:main-menu" %}
+            
             </div>
           </div>
-        </div>
+
     </nav>
     {% render_section "Header", required: false %}
     <div class="container">
