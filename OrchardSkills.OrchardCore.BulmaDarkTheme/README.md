@@ -4,7 +4,22 @@ Building Bulma CSS with Webpack
 
 # Building Bulma CSS with Webpack
 
+# Note
+
+Before building the Orchard Core Web Application the CSS must first be generated.
+
+Go to the directory: .\OrchardSkills.OrchardCore.BulmaDarkTheme
+
+Follow the production build instructions:
+
+Building Bulma CSS with Webpack
+
+# Building Bulma CSS with Webpack
+
 ## Install Packages
+
+Before using Webpack for development or production the node packages must first be installed.
+Use the following command:
 
 ### NPM
 
