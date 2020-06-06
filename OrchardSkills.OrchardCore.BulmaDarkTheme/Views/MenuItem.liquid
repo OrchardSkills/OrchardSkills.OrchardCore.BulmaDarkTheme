@@ -1,0 +1,12 @@
+<a class="navbar-item margin-right  bottom-line-hover {% if Model.HasItems %}dropdown{% endif %}">
+    {% shape_clear_alternates Model %}
+    {% shape_type Model "MenuItemLink" %}
+    {{ Model | shape_render }}
+    {% if Model.HasItems %}
+        <ul class="dropdown-menu">
+            {% for item in Model.Items %}
+                {{ item | shape_render }}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</a>

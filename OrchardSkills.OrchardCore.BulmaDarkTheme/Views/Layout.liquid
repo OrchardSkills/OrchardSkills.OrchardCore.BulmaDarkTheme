@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="{{ Culture.Name }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ "PageTitle" | shape_new | shape_stringify }}</title>
+    {% resources type: "Meta" %}
+    <link type="image/x-icon" rel="shortcut icon" href="/BulmaDarkTheme/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    {% style name:"BulmaDarkTheme", version:"1" %}
+
+    {% resources type: "HeadScript" %}
+    {% resources type: "HeadLink" %}
+    {% resources type: "Stylesheet" %}
+    {% render_section "HeadMeta", required: false %}
+</head>
+<body dir="{{ Culture.Dir }}">
+    <nav class="navbar background-color-dark-grey" role="navigation" aria-label="main navigation">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" aria-label="OrchardSkills.com" rel="noopener" href="https://orchardskills.com/">
+              <img alt="Orchard Skills" src="/BulmaDarkTheme/dist/icons/icon-57x57.png" >
+              <p class="media-right light-grey-text is-size-4">Orchard <strong class="has-text-info">Skills</strong></p>
+            </a>
+            <a role="button"
+              class="navbar-burger burger has-text-info" aria-label="menu" aria-expanded="false"
+              data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+            <div id="navbarBasicExample"
+              class="is-success navbar-menu">
+              <ul style="display: flex;
+              justify-content: center; margin: auto;">
+                <li>
+                  <a href="https://www.facebook.com/Orchard-Skills-106748460853728/" target="_blank"
+                    class="button border-radius is-medium light-grey-text">
+                    <span class="icon">
+                      <!-- <fa-icon [icon]="['fab', 'facebook']"></fa-icon> -->
+                      <i class="tf-ion-social-facebook-outline"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/OrchardSkills/" target="_blank"
+                    class="button border-radius is-medium light-grey-text">
+                    <span class="icon">
+                      <!-- <fa-icon [icon]="['fab', 'twitter']"></fa-icon> -->
+                      <i class="tf-ion-social-twitter-outline"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/OrchardSkills/" target="_blank"
+                    class="button border-radius is-medium light-grey-text">
+                    <span class="icon">
+                      <!-- <fa-icon [icon]="['fab', 'instagram']"></fa-icon> -->
+                      <i class="tf-ion-social-github-outline"></i>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/channel/UCTwti4IV-uER89I39lTln0Q/" target="_blank"
+                    class="button border-radius is-medium light-grey-text">
+                    <span class="icon">
+                      <!-- <fa-icon [icon]="['fab', 'youtube']"></fa-icon> -->
+                      <i class="tf-ion-social-youtube-outline"></i>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="navbar-end" style="margin-left: unset;">
+              {% shape "menu", alias: "alias:main-menu", cache_id: "main-menu", cache_fixed_duration: "00:05:00", cache_tag: "alias:main-menu" %}
+            </div>
+          </div>
+        </div>
+    </nav>
+    {% render_section "Header", required: false %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+				{% render_section "Messages", required: false %}
+                {% render_body %}
+            </div>
+        </div>
+    </div>
+    <footer>
+        {% render_section "Footer", required: false %}
+    </footer>
+    {% resources type: "FootScript" %}
+</body>
+</html>
