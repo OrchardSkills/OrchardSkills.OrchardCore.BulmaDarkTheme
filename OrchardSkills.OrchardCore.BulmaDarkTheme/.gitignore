@@ -49,3 +49,6 @@ package-lock.json
 # yarn
 yarn.lock
 yarn-error.log
+
+# Webpack
+dist/
