@@ -16,6 +16,9 @@ Building Bulma CSS with Webpack
 
 ## Install Packages
 
+Before using Webpack for development or production the node packages must first be installed.
+Use the following command:
+
 ### NPM
 
 ```
