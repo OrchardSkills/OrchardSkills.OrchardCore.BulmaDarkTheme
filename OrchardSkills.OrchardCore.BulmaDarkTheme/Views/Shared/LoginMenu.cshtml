@@ -17,33 +17,35 @@
 
 
 
-<div class="navbar-item has-dropdown is-active ">
-    @if (User.Identity.IsAuthenticated)
+<div class="navbar-item has-dropdown is-hoverable">
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="navbar-item has-dropdown">
+        <a href="#" class="navbar-link background-color-dark-grey bottom-line-hover" data-toggle="dropdown"><span class="icon"><i class="tf-ion-android-person"></i></span> @User.Identity.Name<b class="caret"></b></a>
+        <div class="navbar-dropdown is-boxed background-color-dark-grey">
+            <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Admin" asp-controller="Admin" asp-action="Index"><span class="icon"><i class="tf-ion-android-desktop"></i></span> @T["Dashboard"]</a>
+            @if (allowChangeEmail)
+            {
+                <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="ChangeEmail" asp-action="Index"><span class="icon"><i class="tf-ion-android-mail"></i></span> @T["Change Email"]</a>
+            }
+            <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ChangePassword"><span class="icon"><i class="tf-ion-android-lock"></i></span> @T["Change Password"]</a>
+            @if (externalAuthenticationSchemes.Count() > 0)
+            {
+                <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ExternalLogins"><span class="icon"><i class="tf-ion-android-person"></i></span> @T[" External Logins"]</a>
+            }
+            <form class="form-inline" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="LogOff" method="post">
+                <button type="submit" class="navbar-item logout-button background-color-dark-grey bottom-line-hover"><span class="icon"><i class="tf-ion-log-out"></i></span> @T["Log off"]</button>
+            </form>
+        </div>
+    </div>
+ }
+ else
+ {
+    <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="Login"><span class="icon"><i class="tf-ion-log-in"></i></span> @T["Log in"]</a>
+    if (userCanRegister)
     {
-            <a href="#" class="navbar-link background-color-dark-grey" data-toggle="dropdown"><span class="icon"><i class="tf-ion-android-person"> </i></span>  @User.Identity.Name<b class="caret"></b></a>
-            <div class="navbar-dropdown is-right background-color-dark-grey">
-                <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Admin" asp-controller="Admin" asp-action="Index"><span class="icon"><i class="tf-ion-android-desktop"> </i></span> @T["Dashboard"]</a>
-                @if (allowChangeEmail)
-                {
-                    <a class="navbar-ite bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="ChangeEmail" asp-action="Index"><span class="icon"><i class="tf-ion-android-mail"> </i></span> @T["Change Email"]</a>
-                }
-                <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ChangePassword"><span class="icon"><i class="tf-ion-android-lock"> </i></span> @T["Change Password"]</a>
-                @if (externalAuthenticationSchemes.Count() > 0)
-                {
-                    <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ExternalLogins"><span class="icon"><i class="tf-ion-android-person"> </i></span> @T["External Logins"]</a>
-                }
-                
-                <form class="form-inline" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="LogOff" method="post">
-                    <button type="submit" class="button is-danger"><i class="tf-ion-log-out"></i> @T["Log off"]</button>
-                </form>
-            </div>
+        <a class="navbar-item bottom-line-hover" asp-area="OrchardCore.Users" asp-controller="Registration" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]"><span class="icon"><i class="fa fa-user-plus fa-fw"></i></span> @T["Register"]</a>
     }
-    else
-    {
-        <a class="navbar-item bottom-line-hover" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="Login"><span class="icon"><i class="tf-ion-log-in"></i></span> @T["Log in"]</a>
-        if (userCanRegister)
-        {
-            <a class="navbar-item bottom-line-hover" asp-area="OrchardCore.Users" asp-controller="Registration" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]"><span class="icon"><i class="fa fa-user-plus fa-fw"></i></span> @T["Register"]</a>
-        }
-    }
-</div>
+ }
+ 
+

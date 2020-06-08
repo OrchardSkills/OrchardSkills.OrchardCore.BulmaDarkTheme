@@ -912,3 +912,12 @@ fieldset:disabled a.btn {
 .navbar-dropdown a.navbar-item:hover {
  color:#3273dc 
 }
+
+.logout-button {
+  border: unset;
+  width: 100%;
+  cursor: pointer;
+}
+.logout-button:hover {
+  color:#3273dc !important;
+}
