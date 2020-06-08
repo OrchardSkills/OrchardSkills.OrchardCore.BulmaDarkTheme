@@ -907,3 +907,8 @@ fieldset:disabled a.btn {
  min-width:0;
  margin-bottom:0
 }
+
+.navbar-dropdown a.navbar-item:focus,
+.navbar-dropdown a.navbar-item:hover {
+ color:#3273dc 
+}
