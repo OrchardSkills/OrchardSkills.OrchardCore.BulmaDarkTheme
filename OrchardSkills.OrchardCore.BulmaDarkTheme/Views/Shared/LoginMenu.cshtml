@@ -17,32 +17,73 @@
 
 
 
-<div class="navbar-item has-dropdown is-active">
-    @if (User.Identity.IsAuthenticated)
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a href="#" class="navbar-link" data-toggle="dropdown"><i class="tf-ion-android-person"></i> @User.Identity.Name<b class="caret"></b></a>
+        <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" asp-route-area="OrchardCore.Admin" asp-controller="Admin" asp-action="Index"><i class="tf-ion-android-desktop"></i> @T["Dashboard"]</a>
+            @if (allowChangeEmail)
+            {
+                <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="ChangeEmail" asp-action="Index"><i class="tf-ion-android-mail"></i> @T["Change Email"]</a>
+            }
+            <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ChangePassword"><i class="tf-ion-android-lock"></i> @T["Change Password"]</a>
+            @if (externalAuthenticationSchemes.Count() > 0)
+            {
+                <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ExternalLogins"><i class="tf-ion-android-person"></i> @T[" External Logins"]</a>
+            }
+            <form class="form-inline" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="LogOff" method="post">
+                <button type="submit" class="navbar-item"><i class="tf-ion-log-out"></i> @T["Log off"]</button>
+            </form>
+        </div>
+    </div>
+ }
+ else
+ {
+    <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in-alt fa-fw"></i> @T["Log in"]</a>
+    if (userCanRegister)
     {
-            <a href="#" class="navbar-link" data-toggle="dropdown"><i class="tf-ion-android-person"></i> @User.Identity.Name<b class="caret"></b></a>
-            <div class="navbar-dropdown is-right">
-                <a class="navbar-item" asp-route-area="OrchardCore.Admin" asp-controller="Admin" asp-action="Index"><i class="tf-ion-android-desktop"></i> @T["Dashboard"]</a>
-                @if (allowChangeEmail)
-                {
-                    <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="ChangeEmail" asp-action="Index"><i class="tf-ion-android-mail"></i> @T["Change Email"]</a>
-                }
-                <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ChangePassword"><i class="tf-ion-android-lock"></i> @T["Change Password"]</a>
-                @if (externalAuthenticationSchemes.Count() > 0)
-                {
-                    <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="ExternalLogins"><i class="tf-ion-android-person"></i> @T["External Logins"]</a>
-                }
-                <form class="form-inline" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="LogOff" method="post">
-                    <button type="submit" class="btn btn-link navbar-btn dropdown-item"><i class="fa fa-sign-out-alt fa-fw"></i> @T["Log off"]</button>
-                </form>
-            </div>
+        <a class="navbar-item" asp-area="OrchardCore.Users" asp-controller="Registration" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]"><i class="fa fa-user-plus fa-fw"></i> @T["Register"]</a>
     }
-    else
-    {
-        <a class="navbar-item" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in-alt fa-fw"></i> @T["Log in"]</a>
-        if (userCanRegister)
-        {
-            <a class="navbar-item" asp-area="OrchardCore.Users" asp-controller="Registration" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]"><i class="fa fa-user-plus fa-fw"></i> @T["Register"]</a>
-        }
-    }
-</div>
+ }
+ 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var $dropdowns = getAll('.dropdown:not(.is-hoverable)');
+
+            if ($dropdowns.length > 0) {
+                $dropdowns.forEach(function ($el) {
+                    $el.addEventListener('click', function (event) {
+                        event.stopPropagation();
+                        $el.classList.toggle('is-active');
+                    });
+                });
+
+                document.addEventListener('click', function (event) {
+                    closeDropdowns();
+                });
+            }
+
+            function closeDropdowns() {
+                $dropdowns.forEach(function ($el) {
+                    $el.classList.remove('is-active');
+                });
+            }
+
+            // Close dropdowns if ESC pressed
+            document.addEventListener('keydown', function (event) {
+                var e = event || window.event;
+                if (e.keyCode === 27) {
+                    closeDropdowns();
+                }
+            });
+
+            // Functions
+
+            function getAll(selector) {
+                return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
+            }
+        });
+    </script>
