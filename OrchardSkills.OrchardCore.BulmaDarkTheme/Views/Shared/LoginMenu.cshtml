@@ -12,6 +12,7 @@
 @{
     var allowChangeEmail = (await SiteService.GetSiteSettingsAsync()).As<ChangeEmailSettings>().AllowChangeEmail;
     var externalAuthenticationSchemes = await SignInManager.GetExternalAuthenticationSchemesAsync();
+    var userCanRegister = (await SiteService.GetSiteSettingsAsync()).As<RegistrationSettings>().UsersCanRegister == UserRegistrationType.AllowRegistration;
 }
 <ul class="navbar-nav">
     @if (User.Identity.IsAuthenticated)
@@ -38,5 +39,9 @@
     else
     {
         <li class="nav-item"><a class="nav-link" asp-route-area="OrchardCore.Users" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in-alt fa-fw"></i> @T["Log in"]</a></li>
+        if (userCanRegister)
+        {
+            <li class="nav-item"><a class="nav-link" asp-area="OrchardCore.Users" asp-controller="Registration" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]"><i class="fa fa-user-plus fa-fw"></i> @T["Register"]</a></li>
+        }
     }
 </ul>

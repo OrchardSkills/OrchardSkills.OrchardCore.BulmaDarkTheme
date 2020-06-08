@@ -63,7 +63,6 @@
                 class="button border-radius is-medium light-grey-text"
               >
                 <span class="icon">
-                  <!-- <fa-icon [icon]="['fab', 'facebook']"></fa-icon> -->
                   <i class="tf-ion-social-facebook-outline"></i>
                 </span>
               </a>
@@ -75,7 +74,6 @@
                 class="button border-radius is-medium light-grey-text"
               >
                 <span class="icon">
-                  <!-- <fa-icon [icon]="['fab', 'twitter']"></fa-icon> -->
                   <i class="tf-ion-social-twitter-outline"></i>
                 </span>
               </a>
@@ -87,7 +85,6 @@
                 class="button border-radius is-medium light-grey-text"
               >
                 <span class="icon">
-                  <!-- <fa-icon [icon]="['fab', 'instagram']"></fa-icon> -->
                   <i class="tf-ion-social-github-outline"></i>
                 </span>
               </a>
@@ -99,7 +96,6 @@
                 class="button border-radius is-medium light-grey-text"
               >
                 <span class="icon">
-                  <!-- <fa-icon [icon]="['fab', 'youtube']"></fa-icon> -->
                   <i class="tf-ion-social-youtube-outline"></i>
                 </span>
               </a>
@@ -110,7 +106,6 @@
             cache_fixed_duration: "00:05:00", cache_tag: "alias:main-menu" %}
           </div>
         </div>
-
       </div>
     </nav>
     {% render_section "Header", required: false %}

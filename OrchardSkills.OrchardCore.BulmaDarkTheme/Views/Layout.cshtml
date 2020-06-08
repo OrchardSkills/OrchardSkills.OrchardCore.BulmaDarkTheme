@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="@Orchard.CultureName()">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@RenderTitleSegments(Site.SiteName, "before")</title>
+    <link type="image/x-icon" rel="shortcut icon" href="/BulmaDarkTheme/favicon.ico">
+    <style asp-name="BulmaDarkTheme" version="1"></style>
+    <resources type="Meta" />
+    <resources type="HeadLink" />
+    <resources type="Stylesheet" />
+    <resources type="HeadScript" />
+    @await RenderSectionAsync("HeadMeta", required: false)
+  </head>
+  <body dir="@Orchard.CultureDir()">
+    <nav class="navbar background-color-dark-grey" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" aria-label="@Site.SiteName" rel="noopener" href="~/#">
+                    <img alt="@Site.SiteName" src="/BulmaDarkTheme/dist/icons/icon-57x57.png">
+                    <p class="media-right light-grey-text is-size-4"><strong>@Site.SiteName</strong></p>
+                </a>
+
+                <a
+                  id="toggle"
+                  role="button"
+                   class="navbar-burger burger has-text-info"
+                   aria-label="menu"
+                   aria-expanded="false"
+                   data-target="navbarBasicExample"
+                >
+                   <span aria-hidden="true"></span>
+                   <span aria-hidden="true"></span>
+                   <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="is-success navbar-menu">
+                <ul style="display: flex; justify-content: center; margin: auto;">
+                  <li>
+                    <a 
+                      href="https://www.facebook.com/Orchard-Skills-106748460853728/"
+                      target="_blank"
+                      class="button border-radius is-medium light-grey-text"
+                    >
+                      <span class="icon">
+                        <i class="tf-ion-social-facebook-outline"></i>
+                      </span>
+                    </a>
+                  </li>
+                    <li>
+                      <a 
+                        href="https://twitter.com/OrchardSkills/"
+                        target="_blank"
+                        class="button border-radius is-medium light-grey-text">
+                        <span class="icon">
+                          <i class="tf-ion-social-twitter-outline"></i>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://github.com/OrchardSkills/"
+                        target="_blank"
+                        class="button border-radius is-medium light-grey-text"
+                      >
+                        <span class="icon">
+                          <i class="tf-ion-social-github-outline"></i>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.youtube.com/channel/UCTwti4IV-uER89I39lTln0Q/" 
+                        target="_blank"
+                        class="button border-radius is-medium light-grey-text"
+                      >
+                        <span class="icon">
+                          <i class="tf-ion-social-youtube-outline"></i>
+                        </span>
+                      </a>
+                    </li>
+                </ul>
+                <div id="menu" class="navbar-end" style="margin-left: unset;">
+                  <menu alias="alias:main-menu" cache-id="main-menu" cache-fixed-duration="00:05:00" cache-tag="alias:main-menu" />
+                  <partial name="LoginMenu" />
+                </div>
+            </div>
+        </div>
+    </nav>
+    @await RenderSectionAsync("Header", required: false)
+    <main role="main" class="container">
+        @await RenderSectionAsync("Messages", required: false)
+        @await RenderBodyAsync()
+    </main>
+    @await RenderSectionAsync("Footer", required: false)
+    <resources type="FootScript" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(
+          document.querySelectorAll(".navbar-burger"),
+          0
+        );
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+          // Add a click event on each of them
+          $navbarBurgers.forEach((el) => {
+            el.addEventListener("click", () => {
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle("is-active");
+              $target.classList.toggle("is-active");
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
