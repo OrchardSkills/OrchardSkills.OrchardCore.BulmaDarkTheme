@@ -8,6 +8,14 @@ Building Bulma CSS with Webpack
 
 Added the Bulma CSS with Webpack build to Visual Studio
 
+Important! Neet to:
+
+1. First Rebuild Solution without running.
+2. Then Run.
+
+There is a bizare bug in Visual Studio that you can't build and run at the same time on the first build. 
+This issue only occurs the first time you build and run. 
+
 # Manual Build for Bulma CSS with Webpack
 
 Building Bulma CSS with Webpack
