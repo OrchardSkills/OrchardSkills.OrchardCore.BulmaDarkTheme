@@ -52,6 +52,11 @@ $navbar-item-hover-background-color: var(--hover-color);
 body {
     background-color: var(--color-secondary);
 }
+.content {
+    p {
+        color: var(--font-color);
+    }
+}
 p, li {
     color: var(--font-p-color);
 }
