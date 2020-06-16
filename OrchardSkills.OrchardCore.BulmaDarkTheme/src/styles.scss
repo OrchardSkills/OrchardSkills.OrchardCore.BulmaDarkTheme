@@ -1049,3 +1049,25 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.mobile-switch {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .switch {
+
+        display: none;
+
+    }
+    .mobile-switch {
+        display: flex;
+        align-items: center;
+    }
+    .switch-mobile {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+}
