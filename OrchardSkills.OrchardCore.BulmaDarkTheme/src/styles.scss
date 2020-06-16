@@ -9,6 +9,7 @@
     --color-accent: #fd6f53;
     --hover-color: rgb(217, 216, 216);
     --font-color: #000000;
+    --font-p-color: #000000;
     --gradient-start: rgba(0, 0, 0, 0);
     --gradient-end: rgba(0, 0, 0, 0);
 }
@@ -17,8 +18,9 @@
     --color-primary: #1d2024;
     --color-secondary: #353b43;
     --color-accent: #12cdea;
-    --font-color: #878787;
+    --font-color: #acabab;
     --hover-color: #353b43;
+    --font-p-color: white;
     --gradient-start: rgba(0, 0, 0, 0.83);
     --gradient-end: rgba(0, 0, 0, 0.8);
 }
@@ -50,7 +52,12 @@ $navbar-item-hover-background-color: var(--hover-color);
 body {
     background-color: var(--color-secondary);
 }
-
+p, li {
+    color: var(--font-p-color);
+}
+h1 {
+    color: var(--font-color);
+}
 .navbar {
     position: sticky !important;
     top: 0 !important;
