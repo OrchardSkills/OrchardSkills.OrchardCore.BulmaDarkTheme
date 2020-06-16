@@ -5,7 +5,7 @@
 
 .theme-light {
     --color-primary: #ffffff;
-    --color-secondary: #fbfbfe;
+    --color-secondary: #ecebeb;
     --color-accent: #fd6f53;
     --hover-color: rgb(217, 216, 216);
     --font-color: #000000;
@@ -48,7 +48,7 @@ $navbar-item-hover-background-color: var(--hover-color);
 @import "../node_modules/bulma/sass/grid/_all.sass";
 
 body {
-    background-color: #353b43;
+    background-color: var(--color-secondary);
 }
 
 .navbar {
@@ -232,7 +232,7 @@ input::placeholder {
     }
 
     .navbar-menu {
-        background-color: #1d2024 !important;
+        background-color: var(--color-primary);
     }
 }
 
@@ -507,13 +507,13 @@ header.masthead .post-heading .meta a {
     font-size: 30px;
     margin-top: 30px;
     margin-bottom: 10px;
-    color: white;
+    color: var(--font-color);
 }
 
 .post-preview > a > .post-subtitle {
     font-weight: 300;
     margin: 0 0 10px;
-    color: white;
+    color: var(--font-color);
 }
 
 .post-preview > .post-meta {
@@ -525,7 +525,7 @@ header.masthead .post-heading .meta a {
 
 .post-preview > .post-meta > a {
     text-decoration: none;
-    color: white;
+    color: var(--font-color);
 }
 
 .post-preview > .post-meta > a:focus,
