@@ -458,6 +458,7 @@ header.masthead .site-heading .subheading {
     display: block;
     margin: 10px 0 0;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--font-color);
 }
 
 @media only screen and (min-width: 768px) {
@@ -962,7 +963,8 @@ select.form-control:focus::-ms-value {
 
 .navbar-dropdown a.navbar-item:focus,
 .navbar-dropdown a.navbar-item:hover {
-    color: #3273dc
+    color: #3273dc;
+    background-color: var(--hover-color);
 }
 
 .logout-button {
