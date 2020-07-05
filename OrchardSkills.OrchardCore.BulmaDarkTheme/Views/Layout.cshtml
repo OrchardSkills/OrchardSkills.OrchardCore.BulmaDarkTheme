@@ -68,7 +68,7 @@
                         </span>
                       </a>
                     </li>
-                    <li>
+                    <li >
                       <a
                         href="https://www.youtube.com/channel/UCTwti4IV-uER89I39lTln0Q/" 
                         target="_blank"
@@ -79,11 +79,23 @@
                         </span>
                       </a>
                     </li>
+                    <li class="mobile-switch">
+                                           <label id="switch" class="switch-mobile navbar-item">
+                     <input type="checkbox" onchange="toggleTheme()" id="slider">
+                     <span class="slider round"></span>
+                  </label>
+                      </li>
+
                 </ul>
-                <div id="menu" class="navbar-end" style="margin-left: unset;">
+                            
+                <div id="menu" class="navbar-end margin-right" style="margin-left: unset; margin-right: 5px;">
                   <menu alias="alias:main-menu" cache-id="main-menu" cache-fixed-duration="00:05:00" cache-tag="alias:main-menu" />
                   <partial name="LoginMenu" />
                 </div>
+                  <label id="switch" class="switch navbar-item">
+                     <input type="checkbox" onchange="toggleTheme()" id="slider">
+                     <span class="slider round"></span>
+                  </label>
             </div>
         </div>
     </nav>
@@ -116,6 +128,29 @@
           });
         }
       });
+      // function to set a given theme/color-scheme
+      function setTheme(themeName) {
+          localStorage.setItem('theme', themeName);
+          document.documentElement.className = themeName;
+      }
+      // function to toggle between light and dark theme
+      function toggleTheme() {
+          if (localStorage.getItem('theme') === 'theme-dark') {
+              setTheme('theme-light');
+          } else {
+              setTheme('theme-dark');
+          }
+      }
+      // Immediately invoked function to set the theme on initial load
+      (function () {
+          if (localStorage.getItem('theme') === 'theme-dark') {
+              setTheme('theme-dark');
+              document.getElementById('slider').checked = false;
+          } else {
+              setTheme('theme-light');
+            document.getElementById('slider').checked = true;
+          }
+      })();      
     </script>
   </body>
 </html>
